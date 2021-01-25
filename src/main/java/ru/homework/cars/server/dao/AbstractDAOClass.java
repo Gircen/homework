@@ -28,29 +28,46 @@ public class AbstractDAOClass implements AbstractDaoInterface {
 
     @Override
     public int saveDataGetId(AbstractEntity data) throws Exception {
-        return 0;
+        int ret = 0;
+        Session session = this.sessionFactory.openSession();
+        Transaction tx = session.beginTransaction();
+        session.persist(data);
+        ret = data.getId();
+        tx.commit();
+        session.close();
+        return ret;
     }
 
     @Override
     public List<AbstractEntity> getAll(Class aClass) throws Exception {
         List<AbstractEntity> data = null;
-
-
         Session session = this.sessionFactory.openSession();
-        CriteriaBuilder builder = session.getCriteriaBuilder();
-        
+        Transaction tx = session.beginTransaction();
+        data = session.createCriteria(aClass).list();
+        tx.commit();
+        session.close();
+        return data;
+    }
+
+    @Override
+    public AbstractEntity getDataById(int id, Class aClass) throws Exception {
+
+        AbstractEntity abstractDataClass = null;
+        Session session = this.sessionFactory.openSession();
+        Transaction tx = session.beginTransaction();
+        abstractDataClass = (AbstractEntity) session.get(aClass,id);
+        tx.commit();
         session.close();
         return null;
     }
 
     @Override
-    public AbstractEntity getDataById(int id, Class aClass) throws Exception {
-        return null;
-    }
-
-    @Override
     public void deleteById(int id, Class aClass) throws Exception {
-
+        Session session = this.sessionFactory.openSession();
+        Transaction tx = session.beginTransaction();
+        session.delete(session.load(aClass,id));
+        tx.commit();
+        session.close();
     }
 
     @Override
