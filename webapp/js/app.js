@@ -2,10 +2,17 @@ Ext.application({
 name: 'cars',
 launch: () => {
     var grid = Ext.create('Ext.grid.Panel', {
+             tools: [ {
+                    itemId: 'dataToXls',
+                    style: 'background-image: url(images/excel15.png)',
+                    handler: function () {
+                        // do refresh
+                    }
+                }],
             title: 'cars',
             store: null,
             columns: [
-                { text: 'Ид', dataIndex: 'id' },
+                { text: 'Идентификатор',width:120, dataIndex: 'id' },
                 { text: 'Марка', dataIndex: 'brand' },
                 { text: 'Модель', dataIndex: 'model' },
                 { text: 'Год начала производства',width:150, dataIndex: 'releaseDateYear' },
