@@ -15,4 +15,5 @@ import java.io.Serializable;
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "classesType")
 public abstract class AbstractEntity implements Serializable {
     private int id;
+
 }

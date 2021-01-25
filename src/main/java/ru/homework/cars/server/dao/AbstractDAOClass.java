@@ -5,15 +5,13 @@ import lombok.Setter;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import ru.homework.cars.server.dao.interfaces.AbstractDaoInterface;
+import ru.homework.cars.server.dao.interfaces.AbstractDAOInterface;
 import ru.homework.cars.server.data.AbstractEntity;
 
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
 import java.util.List;
 @Getter
 @Setter
-public class AbstractDAOClass implements AbstractDaoInterface {
+public class AbstractDAOClass implements AbstractDAOInterface {
 
     protected SessionFactory sessionFactory;
     @Override

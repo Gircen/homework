@@ -29,5 +29,5 @@ target/
 
 #idea package ignore
 .idea/
-
+#remove artifact
 out/

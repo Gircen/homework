@@ -4,7 +4,7 @@ import ru.homework.cars.server.data.AbstractEntity;
 
 import java.util.List;
 
-public interface AbstractDaoInterface {
+public interface AbstractDAOInterface {
     public void save(AbstractEntity data) throws Exception;
     public int saveDataGetId(AbstractEntity data) throws Exception;
     public List<AbstractEntity> getAll(Class aClass) throws Exception;
