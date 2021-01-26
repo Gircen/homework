@@ -1,10 +1,12 @@
 package ru.homework.cars.server.dao;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.springframework.beans.factory.annotation.Autowired;
 import ru.homework.cars.server.dao.interfaces.AbstractDAOInterface;
 import ru.homework.cars.server.data.AbstractEntity;
 
@@ -12,8 +14,16 @@ import java.util.List;
 @Getter
 @Setter
 public class AbstractDAOClass implements AbstractDAOInterface {
-
+    public AbstractDAOClass(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
+    @Autowired
     protected SessionFactory sessionFactory;
+
+    public AbstractDAOClass() {
+
+    }
+
     @Override
     public void save(AbstractEntity data) throws Exception {
         Session session = this.sessionFactory.openSession();

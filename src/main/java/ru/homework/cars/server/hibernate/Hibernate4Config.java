@@ -4,11 +4,17 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
+import ru.homework.cars.server.dao.AbstractDAOClass;
+
 @Configuration
 @EnableTransactionManagement
 public class Hibernate4Config {
 
-    @Bean(name ="LocalSessionFactoryBean")
+    @Bean(name = "abstractDao")
+    AbstractDAOClass abstractDAOClass(LocalSessionFactoryBean localSessionFactoryBean){
+        return new AbstractDAOClass();
+    }
+    @Bean(name ="localSessionFactoryBean")
     LocalSessionFactoryBean localSessionFactoryBean(){
         LocalSessionFactoryBean sessionFactoryBean = new LocalSessionFactoryBean();
         sessionFactoryBean.setDataSource(dataSource());
