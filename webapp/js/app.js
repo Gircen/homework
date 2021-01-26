@@ -1,7 +1,7 @@
 Ext.application({
 name: 'cars',
 launch: () => {
-    Ext.create('Ext.data.Store', {
+    var store =Ext.create('Ext.data.Store', {
         storeId:'testStore',
         fields:['id','brand','model','releaseDateYear','releaseDateMonth','engineDisplacement','turbocharger','horsepower','transmission','drive','body','colour'],
         data:[
@@ -18,13 +18,14 @@ launch: () => {
                     }
                 }],
             title: 'cars',
-            store: Ext.data.StoreManager.lookup('testStore'),
+            store: store,
+            plugins: 'gridfilters',
             columns: [
-                { text: 'Идентификатор',width:120, dataIndex: 'id' },
+                { text: 'Идентификатор',width:120, dataIndex: 'id', filter:{type:'number'}},
                 { text: 'Марка', dataIndex: 'brand' ,filter:{type:'string'}},
                 { text: 'Модель', dataIndex: 'model', filter:{type:'string'}},
-                { text: 'Год начала производства',width:150, dataIndex: 'releaseDateYear', xtype:'datecolumn', format:'Y'},
-                { text: 'Месяц начала производства',width:160, dataIndex: 'releaseDateMonth', xtype:'datecolumn', format:'M'},
+                { text: 'Год начала производства',width:150, dataIndex: 'releaseDateYear', xtype:'datecolumn', format:'Y',filter:{type:'string'}},
+                { text: 'Месяц начала производства',width:160, dataIndex: 'releaseDateMonth', xtype:'datecolumn', format:'M',filter:{type:'date'}},
                 { text: 'Рабочий объём двигателя',width:150,     dataIndex: 'engineDisplacement' },
                 { text: 'Турбонагнетатель',width:120, xtype:'booleancolumn', dataIndex: 'turbocharger' },
                 { text: 'Лошадиная сила', dataIndex: 'horsepower' },
