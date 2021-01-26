@@ -29,8 +29,8 @@ public class Cars extends AbstractEntity {
 //    body_id integer NOT NULL, -- Идентификатор кузова
 //    colour_id integer NOT NULL, -- Идентификатор цвета
     @Id
-    @GeneratedValue
-    @Column
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name = "id")
     private int id;
     @NaturalId
     @Column
