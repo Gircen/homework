@@ -1,4 +1,4 @@
-package ru.homework.cars.server.crud.rest.delete;
+package ru.homework.cars.server.crud.rest;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import lombok.extern.log4j.Log4j;
@@ -11,10 +11,9 @@ import ru.homework.cars.server.data.AbstractEntity;
 
 @CrossOrigin(origins = "*")
 @RestController
-@RequestMapping(value = "/")
+@RequestMapping(value = "/delete")
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
-@Log4j
-public class Server {
+public class Delete {
     private static ApplicationContext applicationContext = new AnnotationConfigApplicationContext("ru.homework.cars.server.data.classes");
     @RequestMapping(value = "/{name}/id",method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public void delete(@RequestBody AbstractEntity abstractDataClass, @PathVariable String name,@PathVariable int id) throws Throwable{

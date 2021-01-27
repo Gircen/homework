@@ -1,4 +1,4 @@
-package ru.homework.cars.server.crud.rest.get;
+package ru.homework.cars.server.crud.rest;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import lombok.extern.log4j.Log4j;
@@ -12,11 +12,10 @@ import ru.homework.cars.server.data.AbstractEntity;
 import java.util.List;
 
 @CrossOrigin(origins = "*")
-@RequestMapping(value = "/")
+@RequestMapping(value = "/get")
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.NONE)
 @RestController
-@Log4j
-public class Server {
+public class Get {
     private static ApplicationContext applicationContext = new AnnotationConfigApplicationContext("ru.homework.cars.server.data.classes");
     @RequestMapping(value ="/all/{name}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public List<AbstractEntity> getAll(@PathVariable String name) throws Exception {
