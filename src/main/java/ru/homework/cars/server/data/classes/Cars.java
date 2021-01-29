@@ -15,9 +15,9 @@ import java.util.Date;
 @Setter
 @Getter
 @Entity
-@Table(schema = "cars",name = "cars")
+@Table(schema = "cars", name = "cars")
 public class Cars extends AbstractEntity {
-//    id serial NOT NULL, -- Идентификатор машины
+    //    id serial NOT NULL, -- Идентификатор машины
 //    model character varying NOT NULL DEFAULT ''::character varying, -- Модель автомобиля
 //    release_date date NOT NULL DEFAULT '1980-01-01'::date, -- Дата выпуска
 //    engine_displacement double precision NOT NULL DEFAULT 0.0, -- Рабочий объём двигателя

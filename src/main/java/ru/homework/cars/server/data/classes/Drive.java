@@ -16,7 +16,7 @@ import javax.persistence.Table;
 @Setter
 @Getter
 @Entity
-@Table(schema = "cars",name = "transmission_car")
+@Table(schema = "cars", name = "transmission_car")
 public class Drive {
     @Id
     @Column
