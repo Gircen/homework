@@ -2,6 +2,7 @@ package ru.homework.cars.server.crud.rest;
 
 //import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import ru.homework.cars.server.data.AbstractEntity;
@@ -19,6 +20,7 @@ public class ClientController {
     public  ClientController(ClientService clientService){
         this.clientService = clientService;
     }
+
     @PostMapping(value = "/add/{name}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public Integer create(@RequestBody AbstractEntity abstractDataClass, @PathVariable String name) throws Throwable {
         return clientService.create(abstractDataClass,name);

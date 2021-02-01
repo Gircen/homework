@@ -23,6 +23,7 @@ public class Hibernate4Config {
         LocalSessionFactoryBean sessionFactoryBean = new LocalSessionFactoryBean();
         Properties properties = new Properties();
         properties.setProperty("hibernate.dialect","org.hibernate.dialect.PostgreSQL9Dialect");
+        properties.setProperty("hibernate.temp.use_jdbc_metadata_defaults","false");
         sessionFactoryBean.setHibernateProperties(properties);
         sessionFactoryBean.setDataSource(dataSource());
         sessionFactoryBean.setPackagesToScan("ru.homework.cars.server.data");
