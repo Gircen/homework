@@ -35,10 +35,10 @@ public class Cars extends AbstractEntity {
     @NaturalId
     @Column
     private String model;
+    @Column(name = "release_date")
+    private String yearDate;
     @Column
-    private Date yearDate;
-    @Column
-    private Date monthDate;
+    private String monthDate;
     @Column
     private double engineDisplacement;
     @Column

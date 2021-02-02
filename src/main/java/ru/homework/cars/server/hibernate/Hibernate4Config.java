@@ -14,7 +14,7 @@ import java.util.Properties;
 public class Hibernate4Config {
 
     @Bean(name = "abstractDao")
-    AbstractDAOImpl abstractDAOClass(LocalSessionFactoryBean localSessionFactoryBean) {
+    AbstractDAOImpl abstractDAOClass() {
         return new AbstractDAOImpl();
     }
 
