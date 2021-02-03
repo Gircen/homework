@@ -2,6 +2,7 @@ package ru.homework.cars.server.crud.rest.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Service;
 import ru.homework.cars.server.dao.AbstractDAOImpl;
 import ru.homework.cars.server.data.AbstractEntity;
@@ -11,8 +12,8 @@ import java.util.List;
 
 @Service
 public class ClientServiceImpl implements ClientService {
-    @Autowired
-    private static ApplicationContext applicationContext;
+    private ApplicationContext applicationContext = new AnnotationConfigApplicationContext();
+
     @Override
     public Integer create(AbstractEntity abstractDataClass, String name) throws Throwable {
         int ret = 0;

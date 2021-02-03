@@ -13,11 +13,6 @@ import java.util.Properties;
 @EnableTransactionManagement
 public class Hibernate4Config {
 
-    @Bean(name = "abstractDao")
-    AbstractDAOImpl abstractDAOClass() {
-        return new AbstractDAOImpl();
-    }
-
     @Bean(name = "localSessionFactoryBean")
     LocalSessionFactoryBean localSessionFactoryBean() {
         LocalSessionFactoryBean sessionFactoryBean = new LocalSessionFactoryBean();

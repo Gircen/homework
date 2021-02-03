@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.Formula;
 import org.hibernate.annotations.NaturalId;
 import ru.homework.cars.server.data.AbstractEntity;
 
@@ -35,16 +36,24 @@ public class Cars extends AbstractEntity {
     @NaturalId
     @Column
     private String model;
-    @Column(name = "release_date")
+    @Formula("to_char(release_date,'YYYY')")
     private String yearDate;
-    @Column
+    @Formula("to_char(release_date,'MM')")
     private String monthDate;
-    @Column
+    @Column(name = "engine_displacement")
     private double engineDisplacement;
     @Column
     private boolean turbocharger;
     @Column
     private double horsepower;
+    @OneToOne
+    private Brand brand;
+    @OneToOne
+    private TransmissionCar transmissionCar;
+    @OneToOne
+    private Drive drive;
+    @OneToOne
+    private Colours colours;
 
 
 }

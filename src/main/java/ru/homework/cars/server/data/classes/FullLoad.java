@@ -5,7 +5,6 @@
 //import lombok.NoArgsConstructor;
 //import lombok.Setter;
 //
-//import javax.persistence.Column;
 //import javax.persistence.Entity;
 //import java.util.List;
 //import java.util.Map;
@@ -14,12 +13,12 @@
 //@NoArgsConstructor
 //@Setter
 //@Getter
-//@Entity
+//@Entity(name = "fullLoad")
 //public class FullLoad {
 //    private List<String> dateYear;
 //    private Map<String, String> dateMonth;
-//    @Column(name = "cars")
-//    private List<Cars> cars;
+//    private List<Colours> colours;
+//    private List<Colours> brand;
 //
 //
 //}

@@ -7,6 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import ru.homework.cars.server.dao.interfaces.AbstractDAOInterface;
 import ru.homework.cars.server.data.AbstractEntity;
 
@@ -21,7 +22,6 @@ public class AbstractDAOImpl implements AbstractDAOInterface {
 
     @Autowired
     protected SessionFactory sessionFactory;
-
     public AbstractDAOImpl() {
 
     }
