@@ -12,7 +12,8 @@ import java.util.List;
 
 @Service
 public class ClientServiceImpl implements ClientService {
-    private ApplicationContext applicationContext = new AnnotationConfigApplicationContext();
+    private ApplicationContext applicationContext = new AnnotationConfigApplicationContext("ru.homework.cars.server.dao.config.DAOConfig.class");
+
 
     @Override
     public Integer create(AbstractEntity abstractDataClass, String name) throws Throwable {
@@ -41,7 +42,7 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public AbstractEntity getAll(String name, Integer id) throws Exception {
+    public AbstractEntity get(String name, Integer id) throws Exception {
         try {
             AbstractDAOImpl abstractDAOImpl = (AbstractDAOImpl) applicationContext.getBean(name);
             return abstractDAOImpl.getDataById(id, applicationContext.getBean(name).getClass());

@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.NaturalId;
+import ru.homework.cars.server.data.AbstractEntity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,7 +18,7 @@ import javax.persistence.Table;
 @Getter
 @Entity
 @Table(schema = "cars", name = "colours_car")
-public class Colours {
+public class Colours extends AbstractEntity {
     @Id
     @Column
     private int id;
