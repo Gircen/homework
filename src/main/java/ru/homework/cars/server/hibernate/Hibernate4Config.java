@@ -6,12 +6,18 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
 import ru.homework.cars.server.dao.AbstractDAOImpl;
+import ru.homework.cars.server.data.classes.*;
 
 import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement
 public class Hibernate4Config {
+
+    @Bean(name = "abstractDao")
+    AbstractDAOImpl abstractDAOClass() {
+        return new AbstractDAOImpl();
+    }
 
     @Bean(name = "localSessionFactoryBean")
     LocalSessionFactoryBean localSessionFactoryBean() {
@@ -33,4 +39,25 @@ public class Hibernate4Config {
         dataSource.setPassword("12345");
         return dataSource;
     }
+    @Bean(name = "body")
+    Body body(){ return new Body(); }
+
+    @Bean(name ="brand")
+    Brand brand(){
+        return new Brand();
+    }
+
+    @Bean(name ="cars")
+    Cars cars(){
+        return new Cars();
+    }
+
+    @Bean(name = "colours")
+    Colours colours(){return new Colours();}
+
+    @Bean(name = "drive")
+    Drive drive(){return new Drive();}
+
+    @Bean(name = "transmissioncar")
+    TransmissionCar transmissionCar(){return new TransmissionCar();}
 }
