@@ -1,14 +1,7 @@
 package ru.homework.cars.server.crud.rest;
 
-//import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-import ru.homework.cars.server.crud.rest.service.ClientServiceImpl;
 import ru.homework.cars.server.data.AbstractEntity;
 import ru.homework.cars.server.crud.rest.service.interfaces.ClientService;
 
