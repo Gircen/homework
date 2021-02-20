@@ -23,7 +23,7 @@ public class Hibernate4Config {
     LocalSessionFactoryBean localSessionFactoryBean() {
         LocalSessionFactoryBean sessionFactoryBean = new LocalSessionFactoryBean();
         Properties properties = new Properties();
-        properties.setProperty("hibernate.dialect","org.hibernate.dialect.PostgreSQL9Dialect");
+        properties.setProperty("hibernate.dialect","org.hibernate.dialect.PostgreSQL10Dialect");
         properties.setProperty("hibernate.temp.use_jdbc_metadata_defaults","false");
         sessionFactoryBean.setHibernateProperties(properties);
         sessionFactoryBean.setDataSource(dataSource());
@@ -36,7 +36,7 @@ public class Hibernate4Config {
         dataSource.setUrl("jdbc:postgresql://localhost:5432/homework");
         dataSource.setDriverClassName("org.postgresql.Driver");
         dataSource.setUsername("postgres");
-        dataSource.setPassword("12345");
+        dataSource.setPassword("postgres");
         return dataSource;
     }
     @Bean(name = "body")

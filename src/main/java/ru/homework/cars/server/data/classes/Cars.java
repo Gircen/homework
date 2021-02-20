@@ -18,42 +18,28 @@ import java.util.Date;
 @Entity
 @Table(schema = "cars", name = "cars")
 public class Cars extends AbstractEntity {
-    //    id serial NOT NULL, -- Идентификатор машины
-//    model character varying NOT NULL DEFAULT ''::character varying, -- Модель автомобиля
-//    release_date date NOT NULL DEFAULT '1980-01-01'::date, -- Дата выпуска
-//    engine_displacement double precision NOT NULL DEFAULT 0.0, -- Рабочий объём двигателя
-//    turbocharger boolean NOT NULL DEFAULT false, -- Наличие турбонагнетателя
-//    horsepower double precision NOT NULL DEFAULT 0.0, -- Лошадиная сила
-//    brand_id integer NOT NULL, -- Идентификатор марки
-//    transmission_id integer NOT NULL, -- Идентификатор трансмиссии
-//    drive_id integer NOT NULL, -- Идентификатор привода машины
-//    body_id integer NOT NULL, -- Идентификатор кузова
-//    colour_id integer NOT NULL, -- Идентификатор цвета
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id")
     private int id;
-    @NaturalId
-    @Column
+    @Column(name="model")
     private String model;
-    @Formula("to_char(release_date,'YYYY')")
-    private String yearDate;
-    @Formula("to_char(release_date,'MM')")
-    private String monthDate;
+    @Column(name="release_date")
+    @Temporal(TemporalType.DATE)
+    private Date releaseDate;
     @Column(name = "engine_displacement")
-    private double engineDisplacement;
+    private Double engineDisplacement;
     @Column
-    private boolean turbocharger;
+    private Double turbocharger;
     @Column
-    private double horsepower;
-    @OneToOne
+    private Double horsepower;
+    @OneToOne(targetEntity = Brand.class)
     private Brand brand;
-    @OneToOne
-    private TransmissionCar transmissionCar;
-    @OneToOne
+//    @OneToOne(targetEntity = TransmissionCar.class)
+//    private TransmissionCar transmissionCar;
+    @OneToOne(targetEntity = Drive.class)
     private Drive drive;
-    @OneToOne
-    private Colours colours;
+//    @OneToOne(targetEntity = Colours.class)
+//    private Colours colours;
 
 
 }
